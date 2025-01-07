@@ -1,7 +1,7 @@
 const Login = () => {
   return (
     <div class="form-signin w-100 m-auto">
-      <form>
+      <form onSubmit>
         <img
           class="mb-4"
           src="../assets/brand/bootstrap-logo.svg"
@@ -18,30 +18,23 @@ const Login = () => {
             id="floatingInput"
             placeholder="username / CPR"
           />
-          <label for="floatingInput">Username</label>
+          <label for="username">Username</label>
         </div>
         <div class="form-floating">
           <input
             type="password"
             class="form-control"
-            id="floatingPassword"
-            placeholder="Password"
+            id="password"
+            placeholder="password"
           />
-          <label for="floatingPassword">Password</label>
+          <label for="password">Password</label>
         </div>
 
-        <div class="form-check text-start my-3">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value="remember-me"
-            id="flexCheckDefault"
-          />
-          <label class="form-check-label" for="flexCheckDefault">
-            Remember me
-          </label>
-        </div>
-        <button class="btn btn-primary w-100 py-2" type="submit">
+        <button
+          class="btn btn-primary w-100 py-2"
+          id="submitButton"
+          type="submit"
+        >
           Sign in
         </button>
       </form>

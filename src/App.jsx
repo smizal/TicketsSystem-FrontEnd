@@ -1,18 +1,18 @@
-import { Route, Routes } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import './App.css'
+import { Route, Routes } from "react-router-dom"
+import { useState, useEffect } from "react"
+import axios from "axios"
+import "./App.css"
 const BASE_URL = import.meta.env.VITE_BACKEND
 
 //import MainNavOrg from './components/navs/MainNavOrg'
-import Footer from './components/nav/Footer'
-import MainNav from './components/nav/MainNav'
-import HomeCover from './pages/HomeCover'
-import Login from './pages/login'
-import Register from './pages/Register'
-import NewTicket from './pages/NewTicket'
-import TicketStatus from './pages/TicketStatus'
-import UsersList from './pages/users/UsersList'
+import Footer from "./components/nav/Footer"
+import MainNav from "./components/nav/MainNav"
+import HomeCover from "./pages/HomeCover"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
+import NewTicket from "./pages/NewTicket"
+import TicketStatus from "./pages/TicketStatus"
+import UsersList from "./pages/users/UsersList"
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
 
       <main>
         <Routes>
+          <Route path="/create" element={<NewTicket />} />
           <Route path="/open" element={<NewTicket />} />
           <Route path="/view" element={<TicketStatus />} />
           <Route path="/view/:id" element={<TicketStatus />} />
