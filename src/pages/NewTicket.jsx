@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom"
 const NewTicket = () => {
   const initTicketForm = {
     name: "",
+    email: "",
+    phone: "",
     cpr: "",
     company: "",
     department: "",
@@ -44,6 +46,32 @@ const NewTicket = () => {
               required
             />
             <label for="name">Name</label>
+          </div>
+
+          <div className="form-floating mb-2">
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              placeholder="email"
+              onChange={handleChange}
+              value={ticketForm.email}
+              required
+            />
+            <label for="email">E-mail</label>
+          </div>
+
+          <div className="form-floating mb-2">
+            <input
+              type="text"
+              class="form-control"
+              id="phone"
+              placeholder="phone"
+              onChange={handleChange}
+              value={ticketForm.phone}
+              required
+            />
+            <label for="phone">Phone</label>
           </div>
 
           <div className="form-floating mb-2">
