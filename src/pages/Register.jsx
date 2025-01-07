@@ -30,7 +30,7 @@ const Register = () => {
                   <input
                     type="text"
                     class="form-control"
-                    id="CompanyName"
+                    id="name"
                     placeholder=""
                     value=""
                     required
@@ -41,17 +41,33 @@ const Register = () => {
                 </div>
 
                 <div class="col-12">
-                  <label for="email" class="form-label">
+                  <label for="companyEmail" class="form-label">
                     Email
                   </label>
                   <input
                     type="email"
                     class="form-control"
-                    id="email"
+                    id="companyEmail"
                     placeholder="you@example.com"
                   />
                   <div class="invalid-feedback">
                     Please enter a valid email address for shipping updates.
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="phone" class="form-label">
+                    Phone
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="phone"
+                    placeholder="+973-12345678"
+                  />
+                  <div class="invalid-feedback">
+                    Please enter a valid phone number for receiving further
+                    updates.
                   </div>
                 </div>
 
@@ -78,7 +94,7 @@ const Register = () => {
                   <input
                     type="file"
                     class="form-control"
-                    id="logo"
+                    id="photo"
                     placeholder="logo"
                   />
                 </div>
@@ -88,13 +104,13 @@ const Register = () => {
               <h4 class="mb-3">Admin User Details</h4>
               <div class="row g-3">
                 <div class="col-sm-12">
-                  <label for="CompanyName" class="form-label">
+                  <label for="adminName" class="form-label">
                     Admin Name
                   </label>
                   <input
                     type="text"
                     class="form-control"
-                    id="CompanyName"
+                    id="adminName"
                     placeholder=""
                     value=""
                     required
@@ -105,13 +121,13 @@ const Register = () => {
                 </div>
 
                 <div class="col-12">
-                  <label for="email" class="form-label">
+                  <label for="adminEmail" class="form-label">
                     Email
                   </label>
                   <input
                     type="email"
                     class="form-control"
-                    id="email"
+                    id="adminEmail"
                     placeholder="you@example.com"
                   />
                   <div class="invalid-feedback">
@@ -120,8 +136,38 @@ const Register = () => {
                 </div>
 
                 <div class="col-12">
+                  <label for="cpr" class="form-label">
+                    CPR
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cpr"
+                    placeholder="CPR"
+                  />
+                  <div class="invalid-feedback">
+                    Please enter a valid username.
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="username" class="form-label">
+                    Username
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="Username"
+                  />
+                  <div class="invalid-feedback">
+                    Please enter a valid username.
+                  </div>
+                </div>
+
+                <div class="col-12">
                   <label for="password" class="form-label">
-                    Address
+                    Password
                   </label>
                   <input
                     type="text"
@@ -149,18 +195,6 @@ const Register = () => {
                   <div class="invalid-feedback">
                     Please enter your confirm password.
                   </div>
-                </div>
-
-                <div class="col-12">
-                  <label for="photo" class="form-label">
-                    Photo
-                  </label>
-                  <input
-                    type="file"
-                    class="form-control"
-                    id="photo"
-                    placeholder="photo"
-                  />
                 </div>
               </div>
 
