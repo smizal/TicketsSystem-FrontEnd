@@ -54,7 +54,11 @@ const Register = () => {
         <div className="row g-5 text-start">
           <div className="col-md-12 col-lg-12">
             <h4 className="mb-3">Company Details</h4>
-            <form className="needs-validation" novalidate>
+            <form
+              className="needs-validation"
+              novalidate
+              onSubmit={handleSubmit}
+            >
               <div className="row g-3">
                 <div className="col-sm-12">
                   <label for="companyName" className="form-label">
