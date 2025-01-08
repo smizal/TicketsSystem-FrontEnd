@@ -11,7 +11,8 @@ const DepartmentDetails = () => {
             <thead className="thead-dark">
               <tr>
                 <th>ID</th>
-                <th>Name</th>
+                <th>Company Name</th>
+                <th>Departement Name</th>
                 <th>Description</th>
                 <th>Status</th>
                 <th>Notes</th>
@@ -23,23 +24,29 @@ const DepartmentDetails = () => {
 
               <tr>
                 <td >Test ID</td>
-                <td >Test Name</td>
+                <td >Test Company Name</td>
+                <td >Test Departement Name</td>
                 <td >Test Description</td>
                 <td >Test Status</td>
                 <td >Test Notes</td>
 
                 <td>
                   <button
-                    className="btn btn-primary btn-block btn-sm edit-button"
+                    className="btn btn-outline-primary btn-block btn-sm edit-button"
                   >
                     Edit
                   </button>
-                  <br />
                   <button
                     type="submit"
-                    className="btn btn-block btn-danger btn-sm"
+                    className="btn btn-block btn-outline-danger btn-sm ms-2"
                   >
                     Delete
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-block btn-outline-warning btn-sm ms-2"
+                  >
+                    Suspend
                   </button>
                 </td>
               </tr>
