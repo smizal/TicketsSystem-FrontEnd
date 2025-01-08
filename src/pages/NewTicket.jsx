@@ -99,9 +99,7 @@ const NewTicket = () => {
                 name="companyId"
                 defaultValue={ticketForm.company}
                 required
-              >
-                {/* Option rendering logic here */}
-              </select>
+              ></select>
               <label htmlFor="companyId">Company</label>
             </div>
 
@@ -112,9 +110,7 @@ const NewTicket = () => {
                 name="departmentId"
                 onChange={handleChange}
                 defaultValue={ticketForm.department}
-              >
-                {/* Option rendering logic here */}
-              </select>
+              ></select>
               <label htmlFor="departmentId">Department</label>
             </div>
 
