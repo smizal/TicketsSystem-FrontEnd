@@ -13,6 +13,7 @@ import Register from './pages/Register'
 import NewTicket from './pages/NewTicket'
 import TicketStatus from './pages/TicketStatus'
 import UsersList from './pages/users/UsersList'
+import DepartmentDetails from './pages/departments/DepartmentDetails'
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
           <Route path="/companies/new" element={<TicketStatus />} />
           <Route path="/companies/:id" element={<TicketStatus />} />
           <Route path="/companies/edit/:id" element={<TicketStatus />} />
-          <Route path="/departments" element={<TicketStatus />} />
+          <Route path="/departments" element={<DepartmentDetails />} />
           <Route path="/departments/new" element={<TicketStatus />} />
           <Route path="/departments/:id" element={<TicketStatus />} />
           <Route path="/departments/edit/:id" element={<TicketStatus />} />
