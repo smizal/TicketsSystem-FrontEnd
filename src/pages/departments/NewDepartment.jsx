@@ -39,7 +39,7 @@ const NewDepartment = () => {
             </div>
 
             <div className="form-floating mb-3">
-              <input
+              <select
                 type="tel"
                 className="form-control"
                 id="phone"
@@ -65,17 +65,20 @@ const NewDepartment = () => {
             </div>
 
             <div className="form-floating mb-3">
-              <input
-                type="text"
-                // onChange={handleChange}
-                className="form-control"
-                id="companyName"
-                name="companyName"
-                placeholder="Enter your Company Name"
-                // defaultValue={ticketForm.company}
-                required
-              />
-              <label htmlFor="companyName">Company Name</label>
+
+              <div className="form-floating mb-3">
+                <select
+
+                  className="form-control"
+                  id="companyName"
+                  // placeholder="Company Name"
+                  // onChange={handleChange}
+                  // value={ticketForm.phone}
+                  required
+                />
+                <label htmlFor="companyName">Company Name</label>
+              </div>
+              {/* <label htmlFor="companyName">Company Name</label> */}
             </div>
             <button className="btn btn-primary w-100 py-2" type="submit">
               Submit
