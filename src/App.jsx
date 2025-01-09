@@ -5,17 +5,17 @@ import "./App.css"
 const BASE_URL = import.meta.env.VITE_BACKEND
 
 //import MainNavOrg from './components/navs/MainNavOrg'
-import Footer from './components/nav/Footer'
-import MainNav from './components/nav/MainNav'
-import HomeCover from './pages/HomeCover'
-import Login from './pages/login'
-import Register from './pages/Register'
-import NewTicket from './pages/NewTicket'
-import TicketStatus from './pages/TicketStatus'
-import UsersList from './pages/users/UsersList'
-import DepartmentDetails from './pages/departments/DepartmentDetails'
-import DepartmentsList from './pages/departments/DepartmentsList'
-import NewDepartment from './pages/departments/NewDepartment'
+import Footer from "./components/nav/Footer"
+import MainNav from "./components/nav/MainNav"
+import HomeCover from "./pages/HomeCover"
+import Login from "./pages/login"
+import Register from "./pages/Register"
+import NewTicket from "./pages/NewTicket"
+import TicketStatus from "./pages/TicketStatus"
+import UsersList from "./pages/users/UsersList"
+import DepartmentDetails from "./pages/departments/DepartmentDetails"
+import DepartmentsList from "./pages/departments/DepartmentsList"
+import NewDepartment from "./pages/departments/NewDepartment"
 // import editDepartment from './pages/departments/editDepartment'
 
 function App() {
