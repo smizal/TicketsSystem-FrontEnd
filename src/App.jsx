@@ -5,14 +5,18 @@ import "./App.css"
 const BASE_URL = import.meta.env.VITE_BACKEND
 
 //import MainNavOrg from './components/navs/MainNavOrg'
-import Footer from "./components/nav/Footer"
-import MainNav from "./components/nav/MainNav"
-import HomeCover from "./pages/HomeCover"
-import Login from "./pages/Login"
-import Register from "./pages/Register"
-import NewTicket from "./pages/NewTicket"
-import TicketStatus from "./pages/TicketStatus"
-import UsersList from "./pages/users/UsersList"
+import Footer from './components/nav/Footer'
+import MainNav from './components/nav/MainNav'
+import HomeCover from './pages/HomeCover'
+import Login from './pages/login'
+import Register from './pages/Register'
+import NewTicket from './pages/NewTicket'
+import TicketStatus from './pages/TicketStatus'
+import UsersList from './pages/users/UsersList'
+import DepartmentDetails from './pages/departments/DepartmentDetails'
+import DepartmentsList from './pages/departments/DepartmentsList'
+import NewDepartment from './pages/departments/NewDepartment'
+// import editDepartment from './pages/departments/editDepartment'
 
 function App() {
   return (
@@ -39,10 +43,10 @@ function App() {
           <Route path="/companies/new" element={<TicketStatus />} />
           <Route path="/companies/:id" element={<TicketStatus />} />
           <Route path="/companies/edit/:id" element={<TicketStatus />} />
-          <Route path="/departments" element={<TicketStatus />} />
-          <Route path="/departments/new" element={<TicketStatus />} />
-          <Route path="/departments/:id" element={<TicketStatus />} />
-          <Route path="/departments/edit/:id" element={<TicketStatus />} />
+          <Route path="/departments" element={<DepartmentDetails />} />
+          <Route path="/departments/new" element={<NewDepartment />} />
+          <Route path="/departments/:id" element={<oneDepartment />} />
+          {/* <Route path="/departments/edit/:id" element={<editDepartment />} /> */}
           <Route path="/users" element={<UsersList />} />
           <Route path="/users/new" element={<TicketStatus />} />
           <Route path="/users/:id" element={<TicketStatus />} />

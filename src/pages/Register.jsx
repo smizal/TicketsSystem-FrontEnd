@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-
+import logoSvg from "../components/logo.svg"
 const Register = () => {
   const initCompanyForm = {
     companyName: "",
@@ -36,13 +36,7 @@ const Register = () => {
     <div className="container-register m-auto text-left">
       <main>
         <div className="py-5 text-center">
-          <img
-            className="d-block mx-auto mb-4"
-            src="../assets/brand/bootstrap-logo.svg"
-            alt=""
-            width="72"
-            height="57"
-          />
+          {/* <img class="mb-4" src={logoSvg} alt="" width="72" height="57" /> */}
           <h2>Register a company</h2>
           <p className="lead">
             Submit a request to review and approve by filling the below form

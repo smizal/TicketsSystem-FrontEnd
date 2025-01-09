@@ -1,9 +1,17 @@
+import logoSvg from "../../components/logo.svg"
 const MainNav = () => {
   return (
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container-fluid">
         <span class="navbar-brand" href="#">
-          Logo Here
+          <img
+            class="mb-4"
+            src={logoSvg}
+            alt=""
+            width="72"
+            height="57"
+            className="align-middle"
+          />
         </span>
         <button
           class="navbar-toggler"
