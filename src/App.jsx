@@ -8,11 +8,15 @@ const BASE_URL = import.meta.env.VITE_BACKEND
 import Footer from "./components/nav/Footer"
 import MainNav from "./components/nav/MainNav"
 import HomeCover from "./pages/HomeCover"
-import Login from "./pages/Login"
+import Login from "./pages/login"
 import Register from "./pages/Register"
 import NewTicket from "./pages/NewTicket"
 import TicketStatus from "./pages/TicketStatus"
 import UsersList from "./pages/users/UsersList"
+import DepartmentDetails from "./pages/departments/DepartmentDetails"
+import DepartmentsList from "./pages/departments/DepartmentsList"
+import NewDepartment from "./pages/departments/NewDepartment"
+// import editDepartment from './pages/departments/editDepartment'
 
 function App() {
   return (
@@ -27,8 +31,8 @@ function App() {
           <Route path="/view/:id" element={<TicketStatus />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/dashboard" element={<TicketStatus />} />
+          <Route path="/profile" element={<TicketStatus />} />
           <Route path="/profile/edit" element={<TicketStatus />} />
           <Route path="/tickets" element={<TicketStatus />} />
           <Route path="/tickets/new" element={<TicketStatus />} />
