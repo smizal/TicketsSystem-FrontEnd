@@ -13,6 +13,8 @@ import Register from "./pages/Register"
 import NewTicket from "./pages/NewTicket"
 import TicketStatus from "./pages/TicketStatus"
 import UsersList from "./pages/users/UsersList"
+import Dashboard from "./pages/Dashboard"
+import Profile from "./pages/Profile"
 
 function App() {
   return (
@@ -27,8 +29,8 @@ function App() {
           <Route path="/view/:id" element={<TicketStatus />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<TicketStatus />} />
-          <Route path="/profile" element={<TicketStatus />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/profile/edit" element={<TicketStatus />} />
           <Route path="/tickets" element={<TicketStatus />} />
           <Route path="/tickets/new" element={<TicketStatus />} />
