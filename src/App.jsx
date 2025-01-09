@@ -5,17 +5,20 @@ import "./App.css"
 const BASE_URL = import.meta.env.VITE_BACKEND
 
 //import MainNavOrg from './components/navs/MainNavOrg'
-import Footer from './components/nav/Footer'
-import MainNav from './components/nav/MainNav'
-import HomeCover from './pages/HomeCover'
-import Login from './pages/login'
-import Register from './pages/Register'
-import NewTicket from './pages/NewTicket'
-import TicketStatus from './pages/TicketStatus'
-import UsersList from './pages/users/UsersList'
-import DepartmentDetails from './pages/departments/DepartmentDetails'
-import DepartmentsList from './pages/departments/DepartmentsList'
-import NewDepartment from './pages/departments/NewDepartment'
+import Footer from "./components/nav/Footer"
+import MainNav from "./components/nav/MainNav"
+import HomeCover from "./pages/HomeCover"
+import Login from "./pages/login"
+import DashBoard from "./pages/Dashboard"
+import Register from "./pages/Register"
+import NewTicket from "./pages/NewTicket"
+import TicketStatus from "./pages/TicketStatus"
+import UsersList from "./pages/users/UsersList"
+import DepartmentDetails from "./pages/departments/DepartmentDetails"
+// import DepartmentsList from "./pages/departments/DepartmentsList"
+import NewDepartment from "./pages/departments/NewDepartment"
+import CompanyDetails from "./pages/companies/CompanyDetails"
+import NewCompany from "./pages/companies/NewCompany"
 // import editDepartment from './pages/departments/editDepartment'
 
 function App() {
@@ -31,7 +34,7 @@ function App() {
           <Route path="/view/:id" element={<TicketStatus />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<TicketStatus />} />
+          <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/profile" element={<TicketStatus />} />
           <Route path="/profile/edit" element={<TicketStatus />} />
           <Route path="/tickets" element={<TicketStatus />} />
@@ -39,8 +42,8 @@ function App() {
           <Route path="/tickets/:id" element={<TicketStatus />} />
           <Route path="/tickets/edit/:id" element={<TicketStatus />} />
           <Route path="/tickets/:id/:thread" element={<TicketStatus />} />
-          <Route path="/companies" element={<TicketStatus />} />
-          <Route path="/companies/new" element={<TicketStatus />} />
+          <Route path="/companies" element={<CompanyDetails />} />
+          <Route path="/companies/new" element={<NewCompany />} />
           <Route path="/companies/:id" element={<TicketStatus />} />
           <Route path="/companies/edit/:id" element={<TicketStatus />} />
           <Route path="/departments" element={<DepartmentDetails />} />
