@@ -2,7 +2,6 @@ import logoSvg from '../../components/logo.svg'
 import { Link, useNavigate } from 'react-router-dom'
 
 const MainNav = ({ user, logOut }) => {
-  console.log('user: ', user)
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
       <div className="container-fluid">
