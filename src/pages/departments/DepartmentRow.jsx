@@ -11,6 +11,7 @@ const DepartmentRow = ({
   return (
     <tr key={department._id}>
       <td>{index + 1}</td>
+      <td>{department.companyId.name}</td>
       <td>{department.name}</td>
       <td>{department.description}</td>
       <td>
