@@ -24,7 +24,6 @@ const Login = ({ setUser }) => {
       const response = await signIn(formData)
 
       if (response.token) {
-        console.log(response)
         setMessage('Login successful')
         setFormData(initialFormData)
         setUser(response.user)

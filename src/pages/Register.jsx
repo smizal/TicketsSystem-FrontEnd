@@ -1,19 +1,19 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import logoSvg from "../components/logo.svg"
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import logoSvg from '../components/logo.svg'
 const Register = () => {
   const initCompanyForm = {
-    companyName: "",
-    companyEmail: "",
-    phone: "",
-    address: "",
-    logo: "",
-    adminName: "",
-    adminEmail: "",
-    cpr: "",
-    username: "",
-    password: "",
-    confirmPassword: "",
+    companyName: '',
+    companyEmail: '',
+    phone: '',
+    address: '',
+    logo: '',
+    adminName: '',
+    adminEmail: '',
+    cpr: '',
+    username: '',
+    password: '',
+    confirmPassword: ''
   }
 
   const [companyForm, setCompanyForm] = useState(initCompanyForm)
@@ -30,7 +30,7 @@ const Register = () => {
     event.preventDefault()
     console.log(companyForm)
     setCompany(initCompanyForm)
-    useNavigate("/login")
+    useNavigate('/login')
   }
   return (
     <div className="container-register m-auto text-left">
