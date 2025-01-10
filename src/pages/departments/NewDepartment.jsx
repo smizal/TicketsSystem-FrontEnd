@@ -20,7 +20,11 @@ const NewDepartment = ({ user }) => {
     const companiesList = async () => {
       const data = await companiesService.index()
       setCompanies(data)
-      formData.companyId = data[0]._id
+      if (user.role !== 'super') {
+        formData.companyId = user.companyId
+      } else {
+        formData.companyId = data[0]._id
+      }
     }
     companiesList()
   }, [])
@@ -79,7 +83,7 @@ const NewDepartment = ({ user }) => {
                 type="hidden"
                 id="companyId"
                 name="companyId"
-                value={user.companyId}
+                value={formData.name}
               />
             ) : (
               <div className="form-floating mb-3">
