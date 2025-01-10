@@ -10,7 +10,7 @@ import HomeCover from './pages/HomeCover'
 import Login from './pages/Login'
 import DashBoard from './pages/Dashboard'
 import Register from './pages/Register'
-import NewTicket from './pages/tickets/NewTicket'
+import NewTicket from './pages/NewTicket'
 import TicketStatus from './pages/tickets/TicketStatus'
 import UsersList from './pages/users/UsersList'
 import DepartmentsList from './pages/departments/DepartmentsList'
@@ -35,7 +35,6 @@ function App() {
       <main>
         <Routes>
           <Route path="/create" element={<NewTicket />} />
-          <Route path="/open" element={<NewTicket />} />
           <Route path="/view" element={<TicketStatus />} />
           <Route path="/view/:id" element={<TicketStatus />} />
           <Route path="/register" element={<Register />} />
