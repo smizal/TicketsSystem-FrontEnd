@@ -1,12 +1,10 @@
-
 import React, { useState } from 'react';
-
-    const UserProfile = ({ user }) => {
+const Profile = ({ user }) => {
     const [email, setEmail] = useState(user.email);
     const [password, setPassword] = useState('');
     const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber);
     const [avatar, setAvatar] = useState(user.avatar);
-    const [tickets] = useState(user.tickets); // This can be fetched from the DB
+    const [tickets,setTickets] = useState(user.tickets); // This can be fetched from the DB
 
     const handleAvatarChange = (e) => {
         const file = e.target.files[0];
@@ -78,4 +76,5 @@ import React, { useState } from 'react';
     );
 };
 
-export default UserProfile;
+export default Profile;
+

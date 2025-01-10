@@ -1,6 +1,41 @@
 import logoSvg from "../components/logo.svg"
+import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { signIn } from "../services/authService"
+
+const initialFormData = {
+  username: "",
+  password: "",
+}
 
 const Login = () => {
+  const navigate = useNavigate()
+  const [message, setMessage] = useState("")
+  const [formData, setFormData] = useState(initialFormData)
+
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.id]: event.target.value })
+  }
+
+  const handleSubmit = async (event) => {
+    try {
+      event.preventDefault()
+      const response = await signIn(formData)
+      console.log(response)
+
+      if (response.token) {
+        setMessage("Login successful")
+        setFormData(initialFormData)
+        navigate("/tickets-list")
+      } else {
+        setMessage("Login failed")
+      }
+    } catch (error) {
+      console.log(error)
+      setMessage("There is an error")
+    }
+  }
+  
   return (
     <div
       style={{
@@ -12,7 +47,7 @@ const Login = () => {
     >
       <div className="m-auto form-group-lg" style={{ width: "20%" }}>
         <form
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={handleSubmit}
           className="form-horizontal"
           style={{ marginTop: "-70%" }}
         >
@@ -25,6 +60,8 @@ const Login = () => {
               className="form-control"
               id="floatingInput"
               placeholder="username / CPR"
+              onChange={handleChange}
+              value={formData.username}
             />
             <label htmlFor="username">Username</label>
           </div>
@@ -34,15 +71,13 @@ const Login = () => {
               className="form-control"
               id="password"
               placeholder="password"
+              onChange={handleChange}
+              value={formData.password}
             />
             <label htmlFor="password">Password</label>
           </div>
 
-          <button
-            className="btn btn-primary w-100 py-2"
-            id="submitButton"
-            type="submit"
-          >
+          <button className="btn btn-primary w-100 py-2">
             Sign in 🔓
           </button>
         </form>

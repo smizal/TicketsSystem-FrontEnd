@@ -15,11 +15,11 @@ import NewTicket from "./pages/NewTicket"
 import TicketStatus from "./pages/TicketStatus"
 import UsersList from "./pages/users/UsersList"
 import DepartmentDetails from "./pages/departments/DepartmentDetails"
-// import DepartmentsList from "./pages/departments/DepartmentsList"
+import DepartmentsList from "./pages/departments/DepartmentsList"
 import NewDepartment from "./pages/departments/NewDepartment"
 import CompanyDetails from "./pages/companies/CompanyDetails"
+import CompaniesList from "./pages/departments/CompaniesList"
 import NewCompany from "./pages/companies/NewCompany"
-// import editDepartment from './pages/departments/editDepartment'
 
 function App() {
   return (
