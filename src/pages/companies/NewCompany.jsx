@@ -1,8 +1,8 @@
-const NewDepartment = () => {
+const NewCompany = () => {
   return (
     <>
       <div className="container">
-        <h1 className="mt-5">New Department</h1>
+        <h1 className="mt-5">New Company</h1>
         <div
           className="form-signin mx-auto"
           style={{ maxWidth: "600px", padding: "20px" }}
@@ -25,28 +25,59 @@ const NewDepartment = () => {
 
             <div className="form-floating mb-3">
               <input
-                type="email"
+                type="phone"
                 className="form-control"
-                id="email"
+                id="phone"
                 placeholder="Description"
                 // onChange={handleChange}
                 // value={ticketForm.email}
                 required
               />
-              <label htmlFor="email">Description</label>
+              <label htmlFor="phone">Phone Number</label>
+            </div>
+            <div className="form-floating mb-3">
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                placeholder="Email"
+                // onChange={handleChange}
+                // value={ticketForm.email}
+                required
+              />
+              <label htmlFor="email">Email</label>
             </div>
 
             <div className="form-floating mb-3">
-              <select
-                type="tel"
+              <input
+                type="text"
                 className="form-control"
-                id="phone"
-                placeholder="Phone"
+                id="address"
+                placeholder="address"
                 // onChange={handleChange}
                 // value={ticketForm.phone}
                 required
               />
-              <label htmlFor="phone">Status</label>
+              <label htmlFor="address">Address</label>
+            </div>
+
+            <div class="mb-3">
+              <input class="form-control" type="file" id="photo" />
+            </div>
+
+            <div className="form-floating mb-3">
+              <div className="form-floating mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="status"
+                  placeholder="Status"
+                  // onChange={handleChange}
+                  // value={ticketForm.phone}
+                  required
+                />
+                <label htmlFor="status">Status</label>
+              </div>
             </div>
 
             <div className="form-floating mb-3">
@@ -54,7 +85,7 @@ const NewDepartment = () => {
                 type="text"
                 className="form-control"
                 id="notes"
-                placeholder="Enter your CPR"
+                placeholder="Notes"
                 // onChange={handleChange}
                 // value={ticketForm.cpr}
                 required
@@ -62,20 +93,6 @@ const NewDepartment = () => {
               <label htmlFor="notes">Notes</label>
             </div>
 
-            <div className="form-floating mb-3">
-              <div className="form-floating mb-3">
-                <select
-                  className="form-control"
-                  id="companyName"
-                  // placeholder="Company Name"
-                  // onChange={handleChange}
-                  // value={ticketForm.phone}
-                  required
-                />
-                <label htmlFor="companyName">Company Name</label>
-              </div>
-              {/* <label htmlFor="companyName">Company Name</label> */}
-            </div>
             <button className="btn btn-primary w-100 py-2" type="submit">
               Submit
             </button>
@@ -86,4 +103,4 @@ const NewDepartment = () => {
   )
 }
 
-export default NewDepartment
+export default NewCompany

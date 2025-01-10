@@ -35,40 +35,53 @@ const Login = () => {
       setMessage("There is an error")
     }
   }
-
+  
   return (
-    <div className="form-signin w-100 m-auto">
-      <form onSubmit={handleSubmit}>
-        <img className="mb-4" src={logoSvg} alt="" width="72" height="57" />
-        <h1 className="h3 mb-3 fw-normal">Welcome Back 👋🏻</h1>
-        <div className="text-danger">{message}</div>
-        <div className="form-floating">
-          <input
-            type="username"
-            className="form-control"
-            id="username"
-            placeholder="username / CPR"
-            onChange={handleChange}
-            value={formData.username}
-          />
-          <label for="username">Username</label>
-        </div>
-        <div className="form-floating">
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            placeholder="password"
-            onChange={handleChange}
-            value={formData.password}
-          />
-          <label for="password">Password</label>
-        </div>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh", // Full viewport height
+      }}
+    >
+      <div className="m-auto form-group-lg" style={{ width: "20%" }}>
+        <form
+          onSubmit={handleSubmit}
+          className="form-horizontal"
+          style={{ marginTop: "-70%" }}
+        >
+          <img className="mb-4" src={logoSvg} alt="" width="100" height="100" />
+          <h1 className="h3 mb-3 fw-normal">Welcome Back 👋🏻</h1>
 
-        <button className="btn btn-primary w-100 py-2" id="submitButton">
-          Sign in
-        </button>
-      </form>
+          <div className="form-floating mb-3">
+            <input
+              type="username"
+              className="form-control"
+              id="floatingInput"
+              placeholder="username / CPR"
+              onChange={handleChange}
+              value={formData.username}
+            />
+            <label htmlFor="username">Username</label>
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              placeholder="password"
+              onChange={handleChange}
+              value={formData.password}
+            />
+            <label htmlFor="password">Password</label>
+          </div>
+
+          <button className="btn btn-primary w-100 py-2">
+            Sign in 🔓
+          </button>
+        </form>
+      </div>
     </div>
   )
 }
