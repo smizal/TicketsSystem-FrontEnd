@@ -19,6 +19,7 @@ import CompanyDetails from './pages/companies/CompanyDetails'
 import NewCompany from './pages/companies/NewCompany'
 import Profile from './pages/Profile'
 import TicketsList from './pages/tickets/TicketsList'
+import TicketsCreated from './pages/TicketsCreated'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -35,7 +36,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/create" element={<NewTicket />} />
-          <Route path="/view" element={<TicketStatus />} />
+          <Route path="/status" element={<TicketsCreated />} />
           <Route path="/view/:id" element={<TicketStatus />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login setUser={setUser} />} />

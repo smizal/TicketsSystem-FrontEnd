@@ -27,10 +27,9 @@ const departmentsList = async (id) => {
   }
 }
 
-const deleting = async (id) => {
+const ticketsList = async () => {
   try {
-    const response = await client.delete(`/departments/${id}`)
-    console.log(response.data)
+    const response = await client.get(`/tickets-list`)
     return response.data
   } catch (error) {
     console.log(error)
@@ -47,4 +46,4 @@ const update = async (id, data) => {
   }
 }
 
-export default { companiesList, departmentsList, update, create }
+export default { companiesList, departmentsList, ticketsList, create }

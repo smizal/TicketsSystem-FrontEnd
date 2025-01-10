@@ -26,7 +26,6 @@ const NewTicket = () => {
   useEffect(() => {
     const companiesList = async () => {
       const data = await frontService.companiesList()
-      console.log(data)
       setCompanies(data)
     }
     companiesList()
@@ -39,7 +38,6 @@ const NewTicket = () => {
       const data = await frontService.departmentsList(event.target.value)
       setDepartments(data)
     }
-    console.log(formData)
   }
 
   const handleSubmit = async (event) => {
@@ -53,7 +51,7 @@ const NewTicket = () => {
           setMessage({ msg: data.error, type: 'alert alert-danger' })
         } else {
           setMessage({
-            msg: 'Department Added Successfully',
+            msg: 'Ticket opened Successfully',
             type: 'alert alert-success'
           })
           setFormData(initialFormData)

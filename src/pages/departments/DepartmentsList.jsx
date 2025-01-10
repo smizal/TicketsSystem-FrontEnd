@@ -66,6 +66,7 @@ const DepartmentsList = () => {
               <thead className="thead-dark">
                 <tr>
                   <th>ID</th>
+                  <th>Company</th>
                   <th>Name</th>
                   <th>Description</th>
                   <th>Status</th>
