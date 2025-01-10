@@ -1,31 +1,36 @@
-import { Route, Routes } from "react-router-dom"
-import { useState, useEffect } from "react"
-import axios from "axios"
-import "./App.css"
+import { Route, Routes } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import './App.css'
 const BASE_URL = import.meta.env.VITE_BACKEND
 
-//import MainNavOrg from './components/navs/MainNavOrg'
-import Footer from "./components/nav/Footer"
-import MainNav from "./components/nav/MainNav"
-import HomeCover from "./pages/HomeCover"
-import Login from "./pages/login"
-import DashBoard from "./pages/Dashboard"
-import Register from "./pages/Register"
-import NewTicket from "./pages/tickets/NewTicket"
-import TicketStatus from "./pages/tickets/TicketStatus"
-import UsersList from "./pages/users/UsersList"
-// import DepartmentDetails from "./pages/departments/DepartmentDetails"
-import DepartmentsList from "./pages/departments/DepartmentsList"
-import NewDepartment from "./pages/departments/NewDepartment"
-import CompanyDetails from "./pages/companies/CompanyDetails"
-import NewCompany from "./pages/companies/NewCompany"
-import Profile from "./pages/Profile"
-import TicketsList from "./pages/tickets/TicketsList"
+import Footer from './components/nav/Footer'
+import MainNav from './components/nav/MainNav'
+import HomeCover from './pages/HomeCover'
+import Login from './pages/Login'
+import DashBoard from './pages/Dashboard'
+import Register from './pages/Register'
+import NewTicket from './pages/tickets/NewTicket'
+import TicketStatus from './pages/tickets/TicketStatus'
+import UsersList from './pages/users/UsersList'
+import DepartmentsList from './pages/departments/DepartmentsList'
+import NewDepartment from './pages/departments/NewDepartment'
+import CompanyDetails from './pages/companies/CompanyDetails'
+import NewCompany from './pages/companies/NewCompany'
+import Profile from './pages/Profile'
+import TicketsList from './pages/tickets/TicketsList'
 
 function App() {
+  const [user, setUser] = useState(null)
+
+  const logOut = () => {
+    localStorage.removeItem('authToken')
+    setUser(null)
+  }
+
   return (
     <>
-      <MainNav />
+      <MainNav user={user} logOut={logOut} />
 
       <main>
         <Routes>
@@ -34,7 +39,7 @@ function App() {
           <Route path="/view" element={<TicketStatus />} />
           <Route path="/view/:id" element={<TicketStatus />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/edit" element={<TicketStatus />} />
