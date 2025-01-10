@@ -20,4 +20,15 @@ const deleting = async (id) => {
   }
 }
 
-export default { index, deleting }
+const update = async (id, data) => {
+  console.log(id, data)
+  try {
+    const response = await client.put(`/departments/edit/${id}`, data)
+    console.log(response.data)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export default { index, deleting, update }

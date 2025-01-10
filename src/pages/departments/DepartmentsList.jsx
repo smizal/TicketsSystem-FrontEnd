@@ -8,13 +8,27 @@ const DepartmentsList = () => {
   const [message, setMessage] = useState(null)
   const [departments, setDepartments] = useState(null)
 
-  const getList = async (ship) => {
+  const getList = async () => {
     const data = await departmentsService.index()
     setDepartments(data)
   }
 
   const handleDelete = async (e) => {
     const data = await departmentsService.deleting(e.target.id)
+    if (data) {
+      if (data.error) {
+        setMessage({ msg: data.error, type: 'alert alert-danger' })
+      } else {
+        setMessage({ msg: data.message, type: 'alert alert-info' })
+      }
+      getList()
+    }
+  }
+
+  const handleStatus = async (e) => {
+    const data = await departmentsService.update(e.target.id, {
+      status: e.target.name
+    })
     if (data) {
       if (data.error) {
         setMessage({ msg: data.error, type: 'alert alert-danger' })
@@ -38,6 +52,14 @@ const DepartmentsList = () => {
       <div className="container mt-5">
         <h1>Department List</h1>
         <div className="container table-container">
+          <div className="text-end">
+            <Link
+              to={`/departments/new`}
+              className="btn btn-primary btn-sm mb-4"
+            >
+              New Department
+            </Link>
+          </div>
           {message ? <div className={message.type}>{message.msg}</div> : null}
           {departments ? (
             <table className="table table-bordered table-hover text-center">
@@ -59,6 +81,7 @@ const DepartmentsList = () => {
                       index={index}
                       getList={getList}
                       handleDelete={handleDelete}
+                      handleStatus={handleStatus}
                     />
                   ))
                 ) : (
