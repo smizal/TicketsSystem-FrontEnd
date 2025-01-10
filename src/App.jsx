@@ -11,15 +11,16 @@ import HomeCover from "./pages/HomeCover"
 import Login from "./pages/login"
 import DashBoard from "./pages/Dashboard"
 import Register from "./pages/Register"
-import NewTicket from "./pages/NewTicket"
-import TicketStatus from "./pages/TicketStatus"
+import NewTicket from "./pages/tickets/NewTicket"
+import TicketStatus from "./pages/tickets/TicketStatus"
 import UsersList from "./pages/users/UsersList"
-import DepartmentDetails from "./pages/departments/DepartmentDetails"
+// import DepartmentDetails from "./pages/departments/DepartmentDetails"
 import DepartmentsList from "./pages/departments/DepartmentsList"
 import NewDepartment from "./pages/departments/NewDepartment"
 import CompanyDetails from "./pages/companies/CompanyDetails"
-import CompaniesList from "./pages/departments/CompaniesList"
 import NewCompany from "./pages/companies/NewCompany"
+import Profile from "./pages/Profile"
+import TicketsList from "./pages/tickets/TicketsList"
 
 function App() {
   return (
@@ -35,10 +36,10 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashBoard />} />
-          <Route path="/profile" element={<TicketStatus />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/profile/edit" element={<TicketStatus />} />
-          <Route path="/tickets" element={<TicketStatus />} />
-          <Route path="/tickets/new" element={<TicketStatus />} />
+          <Route path="/tickets" element={<TicketsList />} />
+          <Route path="/tickets/new" element={<NewTicket />} />
           <Route path="/tickets/:id" element={<TicketStatus />} />
           <Route path="/tickets/edit/:id" element={<TicketStatus />} />
           <Route path="/tickets/:id/:thread" element={<TicketStatus />} />
@@ -46,10 +47,9 @@ function App() {
           <Route path="/companies/new" element={<NewCompany />} />
           <Route path="/companies/:id" element={<TicketStatus />} />
           <Route path="/companies/edit/:id" element={<TicketStatus />} />
-          <Route path="/departments" element={<DepartmentDetails />} />
+          <Route path="/departments" element={<DepartmentsList />} />
           <Route path="/departments/new" element={<NewDepartment />} />
           <Route path="/departments/:id" element={<oneDepartment />} />
-          {/* <Route path="/departments/edit/:id" element={<editDepartment />} /> */}
           <Route path="/users" element={<UsersList />} />
           <Route path="/users/new" element={<TicketStatus />} />
           <Route path="/users/:id" element={<TicketStatus />} />
