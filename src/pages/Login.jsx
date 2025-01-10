@@ -1,38 +1,52 @@
 import logoSvg from "../components/logo.svg"
+
 const Login = () => {
   return (
-    <div class="form-signin w-100 m-auto">
-      <form onSubmit>
-        <img class="mb-4" src={logoSvg} alt="" width="72" height="57" />
-        <h1 class="h3 mb-3 fw-normal">Welcome Back 👋🏻</h1>
-
-        <div class="form-floating">
-          <input
-            type="username"
-            class="form-control"
-            id="floatingInput"
-            placeholder="username / CPR"
-          />
-          <label for="username">Username</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            placeholder="password"
-          />
-          <label for="password">Password</label>
-        </div>
-
-        <button
-          class="btn btn-primary w-100 py-2"
-          id="submitButton"
-          type="submit"
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh", // Full viewport height
+      }}
+    >
+      <div className="m-auto form-group-lg" style={{ width: "20%" }}>
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="form-horizontal"
+          style={{ marginTop: "-70%" }}
         >
-          Sign in
-        </button>
-      </form>
+          <img className="mb-4" src={logoSvg} alt="" width="100" height="100" />
+          <h1 className="h3 mb-3 fw-normal">Welcome Back 👋🏻</h1>
+
+          <div className="form-floating mb-3">
+            <input
+              type="username"
+              className="form-control"
+              id="floatingInput"
+              placeholder="username / CPR"
+            />
+            <label htmlFor="username">Username</label>
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              placeholder="password"
+            />
+            <label htmlFor="password">Password</label>
+          </div>
+
+          <button
+            className="btn btn-primary w-100 py-2"
+            id="submitButton"
+            type="submit"
+          >
+            Sign in 🔓
+          </button>
+        </form>
+      </div>
     </div>
   )
 }
