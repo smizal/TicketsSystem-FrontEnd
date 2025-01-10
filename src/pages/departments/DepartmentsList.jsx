@@ -2,7 +2,7 @@ const DepartmentsList = () => {
   return (
     <>
       <div className="container mt-5">
-        <h1>Department Details</h1>
+        <h1>Department List</h1>
         <br />
         <div className="container table-container">
           <br />
@@ -20,18 +20,15 @@ const DepartmentsList = () => {
               </tr>
             </thead>
             <tbody id="servicesTableBody">
-
               <tr>
-                <td >Test ID</td>
-                <td >Test Name</td>
-                <td >Test Description</td>
-                <td >Test Status</td>
-                <td >Test Notes</td>
+                <td>Test ID</td>
+                <td>Test Name</td>
+                <td>Test Description</td>
+                <td>Test Status</td>
+                <td>Test Notes</td>
 
                 <td>
-                  <button
-                    className="btn btn-primary btn-block edit-button"
-                  >
+                  <button className="btn btn-primary btn-block edit-button">
                     Edit
                   </button>
 
@@ -48,7 +45,7 @@ const DepartmentsList = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 export default DepartmentsList
