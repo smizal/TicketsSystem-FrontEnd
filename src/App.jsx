@@ -53,7 +53,10 @@ function App() {
           <Route path="/companies/:id" element={<TicketStatus />} />
           <Route path="/companies/edit/:id" element={<TicketStatus />} />
           <Route path="/departments" element={<DepartmentsList />} />
-          <Route path="/departments/new" element={<NewDepartment />} />
+          <Route
+            path="/departments/new"
+            element={<NewDepartment user={user} />}
+          />
           <Route path="/departments/:id" element={<oneDepartment />} />
           <Route path="/users" element={<UsersList />} />
           <Route path="/users/new" element={<TicketStatus />} />
