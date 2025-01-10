@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const NewTicket = () => {
+const TicketForm = () => {
   const initTicketForm = {
-    name: "",
-    email: "",
-    phone: "",
-    cpr: "",
-    company: "",
-    department: "",
-    title: "",
-    type: "complain",
-    description: "",
+    name: '',
+    email: '',
+    phone: '',
+    cpr: '',
+    company: '',
+    department: '',
+    title: '',
+    type: 'complain',
+    description: ''
   }
   const [ticketForm, setTicketForm] = useState({ initTicketForm })
 
@@ -24,7 +24,7 @@ const NewTicket = () => {
     event.preventDefault()
     console.log(ticketForm)
     setTicketForm(initTicketForm)
-    useNavigate("/")
+    useNavigate('/')
   }
 
   return (
@@ -32,7 +32,7 @@ const NewTicket = () => {
       <div className="container">
         <div
           className="form-signin mx-auto"
-          style={{ maxWidth: "600px", padding: "20px" }}
+          style={{ maxWidth: '600px', padding: '20px' }}
         >
           <h1 className="mb-4 text-center">New Ticket</h1>
 
@@ -164,4 +164,4 @@ const NewTicket = () => {
   )
 }
 
-export default NewTicket
+export default TicketForm
