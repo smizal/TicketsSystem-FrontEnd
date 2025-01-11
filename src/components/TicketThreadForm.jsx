@@ -26,7 +26,7 @@ const TicketThreadForm = ({
                     rows="3"
                     placeholder="Add notes"
                     onChange={handleChange}
-                    value={formData.notes}
+                    value={formData.description}
                   ></textarea>
                   <input
                     type="hidden"

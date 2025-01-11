@@ -4,9 +4,10 @@ const TicketRow = ({ ticket, index }) => {
   return (
     <tr key={ticket._id}>
       <td>{index + 1}</td>
+      <td>{ticket.title}</td>
       <td>{ticket.companyId.name}</td>
       <td>{ticket.departmentId.name}</td>
-      <td>{ticket.title}</td>
+      <td>{ticket.createdAt}</td>
       <td>
         <span
           className={
@@ -14,7 +15,7 @@ const TicketRow = ({ ticket, index }) => {
               ? 'badge text-bg-primary'
               : ticket.status === 'suspended'
               ? 'badge text-bg-danger'
-              : ticket.status === ''
+              : ticket.status === 'inProgress'
               ? 'badge text-bg-warning'
               : 'badge text-bg-success'
           }
