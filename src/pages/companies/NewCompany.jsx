@@ -1,16 +1,19 @@
-import { useState, useEffect } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import companiesService from "../../services/companiesService"
+import { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import companiesService from '../../services/companiesService'
 
 const initialFormData = {
-  name: "",
-  description: "",
-  status: "active",
+  name: '',
+  phone: '',
+  cr: '',
+  email: '',
+  address: '',
+  status: 'active'
 }
 
 const NewCompany = ({ user }) => {
   const navigate = useNavigate()
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState('')
   const [formData, setFormData] = useState(initialFormData)
 
   const handleChange = (event) => {
@@ -18,34 +21,42 @@ const NewCompany = ({ user }) => {
   }
 
   const handleSubmit = async (event) => {
+    console.log(formData)
     try {
       event.preventDefault()
-      setMessage("")
-      const data = await companiesService.create(formData) // Use companiesService
+      setMessage('')
+      const data = await companiesService.create(formData)
 
       if (data) {
         if (data.error) {
-          setMessage({ msg: data.error, type: "alert alert-danger" })
+          setMessage({ msg: data.error, type: 'alert alert-danger' })
         } else {
           setMessage({
-            msg: "Company Added Successfully",
-            type: "alert alert-success",
+            msg: 'Company Added Successfully',
+            type: 'alert alert-success'
           })
-          setFormData(initialFormData) // Reset the form
-          navigate("/companies") // Redirect after adding
+          setFormData(initialFormData)
+          /* navigate('/companies') */
         }
       }
     } catch (error) {
       console.log(error)
       setMessage({
-        msg: "There is an error, please contact the administrator",
-        type: "alert alert-danger",
+        msg: 'There is an error, please contact the administrator',
+        type: 'alert alert-danger'
       })
     }
   }
 
   const isFormInvalid = () => {
-    return !(formData.name && formData.description && formData.status)
+    return !(
+      formData.name &&
+      formData.phone &&
+      formData.cr &&
+      formData.email &&
+      formData.address &&
+      formData.status
+    )
   }
 
   return (
@@ -55,7 +66,7 @@ const NewCompany = ({ user }) => {
         {message ? <div className={message.type}>{message.msg}</div> : null}
         <div
           className="form-signin mx-auto"
-          style={{ maxWidth: "600px", padding: "20px" }}
+          style={{ maxWidth: '600px', padding: '20px' }}
         >
           <form onSubmit={handleSubmit}>
             <div className="form-floating mb-3">
@@ -74,21 +85,57 @@ const NewCompany = ({ user }) => {
               <input
                 type="text"
                 className="form-control"
-                id="description"
-                placeholder="Description"
+                id="phone"
+                placeholder="Phone"
                 onChange={handleChange}
-                value={formData.description}
+                value={formData.phone}
                 required
               />
-              <label htmlFor="description">Description</label>
+              <label htmlFor="phone">Phone</label>
+            </div>
+            <div className="form-floating mb-3">
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                placeholder="Email"
+                onChange={handleChange}
+                value={formData.email}
+                required
+              />
+              <label htmlFor="email">Email</label>
+            </div>
+            <div className="form-floating mb-3">
+              <input
+                type="text"
+                className="form-control"
+                id="address"
+                placeholder="Address"
+                onChange={handleChange}
+                value={formData.address}
+                required
+              />
+              <label htmlFor="address">Address</label>
+            </div>
+            <div className="form-floating mb-3">
+              <input
+                type="text"
+                className="form-control"
+                id="cr"
+                placeholder="cr"
+                onChange={handleChange}
+                value={formData.cr}
+                required
+              />
+              <label htmlFor="cr">CR Number</label>
             </div>
             <div className="form-floating mb-3">
               <select
                 className="form-control"
                 id="status"
-                placeholder="Status" // Change placeholder
+                placeholder="Status"
                 onChange={handleChange}
-                value={formData.status}
+                defaultValue={formData.status}
                 required
               >
                 <option value="active">Active</option>
@@ -101,7 +148,7 @@ const NewCompany = ({ user }) => {
               disabled={isFormInvalid()}
             >
               Add Company
-            </button>{" "}
+            </button>{' '}
             {/* Change button text */}
           </form>
         </div>

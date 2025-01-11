@@ -31,7 +31,7 @@ const update = async (id, data) => {
 
 const create = async (data) => {
   try {
-    const response = await client.post(`/departments/`, data)
+    const response = await client.post(`/departments`, data)
     console.log(response.data)
     return response.data
   } catch (error) {

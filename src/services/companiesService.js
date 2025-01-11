@@ -1,8 +1,8 @@
-import client from "./config"
+import client from './config'
 
 const index = async () => {
   try {
-    const response = await client.get("/companies")
+    const response = await client.get('/companies')
     return response.data
   } catch (error) {
     console.log(error)
@@ -29,10 +29,9 @@ const update = async (id, data) => {
   }
 }
 
-const create = async (id, data) => {
+const create = async (data) => {
   try {
-    const response = await client.post(`/companies/`, data)
-    console.log(response.data)
+    const response = await client.post(`/companies`, data)
     return response.data
   } catch (error) {
     console.log(error)

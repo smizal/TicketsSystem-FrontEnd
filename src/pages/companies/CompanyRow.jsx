@@ -1,13 +1,24 @@
-import { Link } from "react-router-dom"
-import companiesService from "../../services/companiesService"
+import { Link } from 'react-router-dom'
+import companiesService from '../../services/companiesService'
 
 const CompanyRow = ({
   company,
   index,
   getList,
   handleDelete,
-  handleStatus,
+  handleStatus
 }) => {
+  {
+    /* <th>ID</th>
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Email</th>
+                  <th>Address</th>
+                  <th>CR</th>
+                  <th>Status</th>
+                  <th>Action</th> */
+  }
+
   return (
     <tr key={company._id}>
       <td>{index + 1}</td>
@@ -16,44 +27,44 @@ const CompanyRow = ({
       <td>{company.email}</td>
       <td>{company.address}</td>
       <td>{company.cr}</td>
-      <td>{company.photo}</td>
       <td>
         <span
           className={
-            company.status === "active"
-              ? "badge text-bg-success"
-              : "badge text-bg-warning"
+            company.status === 'active'
+              ? 'badge text-bg-success'
+              : company.status === 'pending'
+              ? 'badge text-bg-warning'
+              : 'badge text-bg-danger'
           }
         >
           {company.status}
         </span>
       </td>
-      <td>{company.address}</td>
       <td>
-        <Link
-          to={`/companies/${company._id}`} // Enable viewing company details
+        {/* <Link
+          to={`/companies/${company._id}`}
           className="btn btn-primary btn-sm me-2"
         >
           View
-        </Link>
+        </Link> */}
         <button
           className="btn btn-danger btn-sm me-2"
           id={company._id}
-          onClick={() => handleDelete(company._id)} // Ensure we're passing the ID
+          onClick={handleDelete}
         >
           Delete
         </button>
         <button
           className={
-            company.status === "active"
-              ? "btn btn-warning btn-sm"
-              : "btn btn-success btn-sm"
+            company.status === 'active'
+              ? 'btn btn-warning btn-sm'
+              : 'btn btn-success btn-sm'
           }
           id={company._id}
-          name={company.status === "active" ? "suspended" : "active"}
-          onClick={() => handleStatus(company._id, company.status)} // Ensure we're passing the ID and status
+          name={company.status === 'active' ? 'suspended' : 'active'}
+          onClick={handleStatus}
         >
-          {company.status === "active" ? "Suspend" : "Activate"}
+          {company.status === 'active' ? 'Suspend' : 'Activate'}
         </button>
       </td>
     </tr>
