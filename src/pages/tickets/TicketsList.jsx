@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import ticketsService from '../../services/ticketsService'
-import TicketAdminRow from './TicketAdminRow'
+import { useState, useEffect } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import ticketsService from "../../services/ticketsService"
+import TicketAdminRow from "./TicketAdminRow"
 
 const TicketsList = () => {
   const navigate = useNavigate()
@@ -17,11 +17,11 @@ const TicketsList = () => {
     const data = await ticketsService.deleting(e.target.id)
     if (data) {
       if (data.error) {
-        setMessage({ msg: data.error, type: 'alert alert-danger' })
+        setMessage({ msg: data.error, type: "alert alert-danger" })
       } else {
         setMessage({
-          msg: 'Ticket Deleted Successfully',
-          type: 'alert alert-info'
+          msg: "Ticket Deleted Successfully",
+          type: "alert alert-info",
         })
       }
       getList()
@@ -30,15 +30,15 @@ const TicketsList = () => {
 
   const handleStatus = async (e) => {
     const data = await ticketsService.update(e.target.id, {
-      status: e.target.name
+      status: e.target.name,
     })
     if (data) {
       if (data.error) {
-        setMessage({ msg: data.error, type: 'alert alert-danger' })
+        setMessage({ msg: data.error, type: "alert alert-danger" })
       } else {
         setMessage({
-          msg: 'Ticket Status Changed Successfully',
-          type: 'alert alert-info'
+          msg: "Ticket Status Changed Successfully",
+          type: "alert alert-info",
         })
       }
       getList()
@@ -93,13 +93,13 @@ const TicketsList = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colspan="9">No tickets found</td>
+                    <td colSpan="9">No tickets found</td>
                   </tr>
                 )}
               </tbody>
             </table>
           ) : (
-            'Loading...'
+            "Loading..."
           )}
         </div>
       </div>
