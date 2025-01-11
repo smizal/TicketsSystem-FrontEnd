@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ticketsService from '../../services/ticketsService'
+import frontService from '../../services/frontService'
 import CompaniesSelector from '../../components/CompaniesSelector'
 import DepartmentsSelector from '../../components/DepartmentsSelector'
 
@@ -41,10 +42,11 @@ const TicketForm = () => {
   }
 
   const handleSubmit = async (event) => {
+    console.log(formData)
     try {
       event.preventDefault()
       setMessage('')
-      const data = await frontService.create(formData)
+      const data = await ticketsService.create(formData)
 
       if (data) {
         if (data.error) {
