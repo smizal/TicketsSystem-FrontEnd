@@ -2,50 +2,79 @@ import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import departmentsService from '../../services/departmentsService'
 import DepartmentRow from './DepartmentRow'
+import DepartmentRows from './DepartmentsRows'
 
 const DepartmentsList = () => {
   const navigate = useNavigate()
   const [message, setMessage] = useState(null)
   const [departments, setDepartments] = useState(null)
+  const [loading, setLoading] = useState(false);
 
-  const getList = async () => {
-    const data = await departmentsService.index()
-    setDepartments(data)
-  }
-
-  const handleDelete = async (e) => {
-    const data = await departmentsService.deleting(e.target.id)
-    if (data) {
-      if (data.error) {
-        setMessage({ msg: data.error, type: 'alert alert-danger' })
-      } else {
-        setMessage({ msg: data.message, type: 'alert alert-info' })
-      }
-      getList()
-    }
-  }
-
-  const handleStatus = async (e) => {
-    const data = await departmentsService.update(e.target.id, {
-      status: e.target.name
-    })
-    if (data) {
-      if (data.error) {
-        setMessage({ msg: data.error, type: 'alert alert-danger' })
-      } else {
-        setMessage({ msg: data.message, type: 'alert alert-info' })
-      }
-      getList()
-    }
-  }
-
-  useEffect(() => {
-    const fetchDefaultList = async () => {
+  try {
+    const getList = async () => {
+      setLoading(true);
       const data = await departmentsService.index()
-      setDepartments(data)
+      console.log(data)
+      setDepartments(setDepartments(data ? (data.length > 0 ? data : []) : []))
     }
-    fetchDefaultList()
-  }, [])
+  } catch (error) {
+    setLoading(false);
+    console.log(error)
+
+  }
+
+  try {
+    setLoading(true)
+    const handleDelete = async (e) => {
+      const data = await departmentsService.deleting(e.target.id)
+      if (data) {
+        if (data.error) {
+          setMessage({ msg: data.error, type: 'alert alert-danger' })
+        } else {
+          setMessage({ msg: data.message, type: 'alert alert-info' })
+        }
+        getList()
+      }
+    }
+  } catch (error) {
+    setLoading(false)
+    console.log(error)
+  }
+
+  try {
+    setLoading(true)
+    const handleStatus = async (e) => {
+      const data = await departmentsService.update(e.target.id, {
+        status: e.target.name
+      })
+      if (data) {
+        if (data.error) {
+          setMessage({ msg: data.error, type: 'alert alert-danger' })
+        } else {
+          setMessage({ msg: data.message, type: 'alert alert-info' })
+        }
+        getList()
+      }
+    }
+  } catch (error) {
+    setLoading(false)
+    console.log(error)
+  }
+
+  try {
+    setLoading(true)
+    useEffect(() => {
+      const fetchDefaultList = async () => {
+        const data = await departmentsService.index()
+        console.log(data)
+        setDepartments(setDepartments(data ? (data.length > 0 ? data : []) : []))
+      }
+      fetchDefaultList()
+    }, [])
+  } catch (error) {
+    setLoading(false)
+    console.log(error)
+  }
 
   return (
     <>
@@ -61,40 +90,7 @@ const DepartmentsList = () => {
             </Link>
           </div>
           {message ? <div className={message.type}>{message.msg}</div> : null}
-          {departments ? (
-            <table className="table table-bordered table-hover text-center">
-              <thead className="thead-dark">
-                <tr>
-                  <th>ID</th>
-                  <th>Company</th>
-                  <th>Name</th>
-                  <th>Description</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="servicesTableBody">
-                {departments.length > 0 ? (
-                  departments.map((department, index) => (
-                    <DepartmentRow
-                      key={department._id}
-                      department={department}
-                      index={index}
-                      getList={getList}
-                      handleDelete={handleDelete}
-                      handleStatus={handleStatus}
-                    />
-                  ))
-                ) : (
-                  <tr>
-                    <td colspan="6">No departments found</td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          ) : (
-            'Loading...'
-          )}
+          <DepartmentRows departments={DepartmentRows} getList={getList} handleDelete={handleDelete} handleStatus={handleStatus} />
         </div>
       </div>
     </>
