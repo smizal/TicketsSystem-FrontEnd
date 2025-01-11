@@ -22,6 +22,7 @@ const NewTicket = () => {
   const [formData, setFormData] = useState(initialFormData)
   const [companies, setCompanies] = useState(null)
   const [departments, setDepartments] = useState(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
     const companiesList = async () => {
@@ -41,9 +42,11 @@ const NewTicket = () => {
   }
 
   const handleSubmit = async (event) => {
+    event.preventDefault()
+    setIsSubmitting(true)
+    setMessage('')
+
     try {
-      event.preventDefault()
-      setMessage('')
       const data = await frontService.create(formData)
 
       if (data) {
@@ -58,11 +61,13 @@ const NewTicket = () => {
         }
       }
     } catch (error) {
-      console.log(error)
+      console.error(error)
       setMessage({
         msg: 'There is an error, please contact the administrator',
         type: 'alert alert-danger'
       })
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -200,9 +205,17 @@ const NewTicket = () => {
 
             <button
               className="btn btn-primary w-100 py-2"
-              disabled={isFormInvalid()}
+              type="submit"
+              disabled={isFormInvalid() || isSubmitting}
             >
-              Open Ticket
+              {isSubmitting ? (
+                <>
+                  <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  {' '}Open Ticket
+                </>
+              ) : (
+                'Open Ticket'
+              )}
             </button>
           </form>
         </div>

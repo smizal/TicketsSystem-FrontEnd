@@ -15,6 +15,7 @@ const NewDepartment = ({ user }) => {
   const [message, setMessage] = useState('')
   const [formData, setFormData] = useState(initialFormData)
   const [companies, setCompanies] = useState(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
     const companiesList = async () => {
@@ -25,18 +26,20 @@ const NewDepartment = ({ user }) => {
       } else {
         formData.companyId = data[0]._id
       }
+
     }
     companiesList()
-  }, [])
+  }, [user.role])
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.id]: event.target.value })
   }
 
   const handleSubmit = async (event) => {
+    event.preventDefault()
+    setIsSubmitting(true)
+    setMessage('')
     try {
-      event.preventDefault()
-      setMessage('')
       const data = await departmentsService.create(formData)
 
       if (data) {
@@ -56,6 +59,8 @@ const NewDepartment = ({ user }) => {
         msg: 'There is an error, please contact the administrator',
         type: 'alert alert-danger'
       })
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -87,22 +92,20 @@ const NewDepartment = ({ user }) => {
               />
             ) : (
               <div className="form-floating mb-3">
-                <div className="form-floating mb-3">
-                  {companies ? (
-                    <select
-                      className="form-control"
-                      id="companyId"
-                      placeholder="Company Name"
-                      onChange={handleChange}
-                      defaultValue={companies[0]._id}
-                      required
-                    >
-                      {companies.map((company, index) => (
-                        <option value={company._id}>{company.name}</option>
-                      ))}
-                    </select>
-                  ) : null}
-                </div>
+                {companies ? (
+                  <select
+                    className="form-control"
+                    id="companyId"
+                    placeholder="Company Name"
+                    onChange={handleChange}
+                    defaultValue={formData.companyId}
+                    required
+                  >
+                    {companies.map((company, index) => (
+                      <option key={index} value={company._id}>{company.name}</option>
+                    ))}
+                  </select>
+                ) : null}
               </div>
             )}
 
@@ -134,24 +137,31 @@ const NewDepartment = ({ user }) => {
 
             <div className="form-floating mb-3">
               <select
-                type="tel"
                 className="form-control"
-                id="phone"
-                placeholder="Phone"
+                id="status"
                 onChange={handleChange}
-                defaultValue={formData.status}
+                value={formData.status}
                 required
               >
                 <option value="active">Active</option>
                 <option value="suspended">Suspended</option>
               </select>
-              <label htmlFor="phone">Status</label>
+              <label htmlFor="status">Status</label>
             </div>
+
             <button
               className="btn btn-primary w-100 py-2"
-              disabled={isFormInvalid()}
+              type="submit"
+              disabled={isFormInvalid() || isSubmitting}
             >
-              Add Department
+              {isSubmitting ? (
+                <>
+                  <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  {' '}Submitting...
+                </>
+              ) : (
+                'Add Department'
+              )}
             </button>
           </form>
         </div>
