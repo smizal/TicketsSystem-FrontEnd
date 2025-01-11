@@ -16,7 +16,7 @@ const DepartmentRow = ({
       <td>{department.description}</td>
       <td>
         <span
-          class={
+          className={
             department.status === 'active'
               ? 'badge text-bg-success'
               : 'badge text-bg-warning'

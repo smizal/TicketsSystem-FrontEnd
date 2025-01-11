@@ -36,14 +36,30 @@ const ticketsList = async () => {
   }
 }
 
-const update = async (id, data) => {
+const show = async (id) => {
   try {
-    const response = await client.put(`/departments/edit/${id}`, data)
-    console.log(response.data)
+    const response = await client.get(`/tickets/${id}`)
     return response.data
   } catch (error) {
     console.log(error)
   }
 }
 
-export default { companiesList, departmentsList, ticketsList, create }
+const addThread = async (id, data) => {
+  try {
+    console.log(id, data)
+    const response = await client.post(`/add-thread/${id}`, data)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export default {
+  companiesList,
+  departmentsList,
+  ticketsList,
+  create,
+  show,
+  addThread
+}

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import frontService from '../services/frontService'
-import TicketStatus from './tickets/TicketStatus'
 import TicketRow from '../components/TicketRow'
 
 const TicketsCreated = () => {
