@@ -20,6 +20,7 @@ import NewCompany from './pages/companies/NewCompany'
 import Profile from './pages/Profile'
 import TicketsList from './pages/tickets/TicketsList'
 import TicketsCreated from './pages/TicketsCreated'
+import TicketDetails from './pages/tickets/TicketDetails'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -45,7 +46,7 @@ function App() {
           <Route path="/profile/edit" element={<TicketStatus />} />
           <Route path="/tickets" element={<TicketsList />} />
           <Route path="/tickets/new" element={<NewTicket />} />
-          <Route path="/tickets/:id" element={<TicketStatus />} />
+          <Route path="/tickets/:id" element={<TicketDetails />} />
           <Route path="/tickets/edit/:id" element={<TicketStatus />} />
           <Route path="/tickets/:id/:thread" element={<TicketStatus />} />
           <Route path="/companies" element={<CompanyDetails />} />

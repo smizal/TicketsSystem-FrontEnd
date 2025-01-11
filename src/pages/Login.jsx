@@ -30,7 +30,7 @@ const Login = ({ setUser }) => {
         if (response.user.role === 'customer') {
           navigate('/')
         } else {
-          navigate('/dashboard')
+          navigate('/tickets')
         }
       } else {
         setMessage(`Login failed: ${response.error}`)

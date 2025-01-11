@@ -35,6 +35,7 @@ const TicketsCreated = () => {
                   <th>Title</th>
                   <th>Company</th>
                   <th>Department</th>
+                  <th>Created Date</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
