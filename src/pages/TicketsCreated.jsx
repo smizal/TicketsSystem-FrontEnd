@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import frontService from '../services/frontService'
-import TicketRow from '../components/TicketRow'
+import { useState, useEffect } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import frontService from "../services/frontService"
+import TicketRow from "../components/TicketRow"
 
 const TicketsCreated = () => {
   const navigate = useNavigate()
@@ -47,13 +47,13 @@ const TicketsCreated = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colspan="6">No departments found</td>
+                    <td colSpan="6">No departments found</td>
                   </tr>
                 )}
               </tbody>
             </table>
           ) : (
-            'Loading...'
+            "Loading..."
           )}
         </div>
       </div>
