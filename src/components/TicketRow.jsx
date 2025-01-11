@@ -9,7 +9,7 @@ const TicketRow = ({ ticket, index }) => {
       <td>{ticket.title}</td>
       <td>
         <span
-          class={
+          className={
             ticket.status === 'new'
               ? 'badge text-bg-primary'
               : ticket.status === 'suspended'
@@ -24,7 +24,7 @@ const TicketRow = ({ ticket, index }) => {
       </td>
       <td>
         <Link
-          to={`/tickets-show/${ticket._id}`}
+          to={`/view/${ticket._id}`}
           className="btn btn-primary btn-sm me-2"
         >
           View

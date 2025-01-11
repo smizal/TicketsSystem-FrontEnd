@@ -149,7 +149,7 @@ const NewDepartment = ({ user }) => {
             </div>
             <button
               className="btn btn-primary w-100 py-2"
-              disabled={isFormInvalid}
+              disabled={isFormInvalid()}
             >
               Add Department
             </button>
