@@ -52,7 +52,7 @@ const UserDetails = () => {
           setMessage({ msg: data.error, type: 'alert alert-danger' })
         } else {
           setMessage({
-            msg: 'Thread added Successfully',
+            msg: data.message ? data.message : 'Thread added Successfully',
             type: 'alert alert-success'
           })
           setFormData(initialFormData)

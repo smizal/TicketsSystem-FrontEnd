@@ -54,7 +54,7 @@ const NewTicket = () => {
           setMessage({ msg: data.error, type: 'alert alert-danger' })
         } else {
           setMessage({
-            msg: 'Ticket opened Successfully',
+            msg: data.message ? data.message : 'Ticket opened Successfully',
             type: 'alert alert-success'
           })
           setFormData(initialFormData)
@@ -210,8 +210,12 @@ const NewTicket = () => {
             >
               {isSubmitting ? (
                 <>
-                  <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                  {' '}Open Ticket
+                  <span
+                    className="spinner-border spinner-border-sm"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>{' '}
+                  Open Ticket
                 </>
               ) : (
                 'Open Ticket'
