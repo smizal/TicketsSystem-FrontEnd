@@ -4,8 +4,8 @@ import axios from 'axios'
 import './App.css'
 const BASE_URL = import.meta.env.VITE_BACKEND
 
-import Footer from './components/nav/Footer'
-import MainNav from './components/nav/MainNav'
+import Footer from './components/Footer'
+import MainNav from './components/MainNav'
 import HomeCover from './pages/HomeCover'
 import Login from './pages/Login'
 import DashBoard from './pages/Dashboard'

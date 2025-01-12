@@ -47,7 +47,6 @@ const show = async (id) => {
 
 const addThread = async (id, data) => {
   try {
-    console.log(id, data)
     const response = await client.post(`/tickets/${id}`, data)
     return response.data
   } catch (error) {

@@ -42,7 +42,6 @@ const TicketForm = () => {
   }
 
   const handleSubmit = async (event) => {
-    console.log(formData)
     try {
       event.preventDefault()
       setMessage('')

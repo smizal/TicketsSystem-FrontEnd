@@ -26,7 +26,6 @@ const NewDepartment = ({ user }) => {
       } else {
         formData.companyId = data[0]._id
       }
-
     }
     companiesList()
   }, [user.role])
@@ -102,7 +101,9 @@ const NewDepartment = ({ user }) => {
                     required
                   >
                     {companies.map((company, index) => (
-                      <option key={index} value={company._id}>{company.name}</option>
+                      <option key={index} value={company._id}>
+                        {company.name}
+                      </option>
                     ))}
                   </select>
                 ) : null}
@@ -156,8 +157,12 @@ const NewDepartment = ({ user }) => {
             >
               {isSubmitting ? (
                 <>
-                  <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                  {' '}Submitting...
+                  <span
+                    className="spinner-border spinner-border-sm"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>{' '}
+                  Submitting...
                 </>
               ) : (
                 'Add Department'

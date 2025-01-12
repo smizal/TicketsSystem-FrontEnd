@@ -1,4 +1,4 @@
-import logoSvg from '../../components/logo.svg'
+import logoSvg from './logo.svg'
 import { Link, useNavigate } from 'react-router-dom'
 
 const MainNav = ({ user, logOut }) => {
@@ -7,7 +7,7 @@ const MainNav = ({ user, logOut }) => {
       <div className="container-fluid">
         <span className="navbar-brand" to="#">
           <img
-            className="mb-4 align-middle"
+            className="align-middle"
             src={logoSvg}
             alt=""
             width="72"

@@ -21,19 +21,16 @@ const DepartmentDetails = () => {
               </tr>
             </thead>
             <tbody id="servicesTableBody">
-
               <tr>
-                <td >Test ID</td>
-                <td >Test Company Name</td>
-                <td >Test Departement Name</td>
-                <td >Test Description</td>
-                <td >Test Status</td>
-                <td >Test Notes</td>
+                <td>Test ID</td>
+                <td>Test Company Name</td>
+                <td>Test Department Name</td>
+                <td>Test Description</td>
+                <td>Test Status</td>
+                <td>Test Notes</td>
 
                 <td>
-                  <button
-                    className="btn btn-outline-primary btn-block btn-sm edit-button"
-                  >
+                  <button className="btn btn-outline-primary btn-block btn-sm edit-button">
                     Edit
                   </button>
                   <button
@@ -55,7 +52,7 @@ const DepartmentDetails = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 export default DepartmentDetails

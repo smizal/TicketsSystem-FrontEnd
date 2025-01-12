@@ -31,7 +31,6 @@ const TicketStatus = () => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault()
-      console.log(id, formData)
       setMessage('')
       const data = await frontService.addThread(id, formData)
 

@@ -19,16 +19,11 @@ const Register = () => {
   const [companyForm, setCompanyForm] = useState(initCompanyForm)
 
   const handleChange = (event) => {
-    console.log(event.target.id, event.target.value)
-    console.log(companyForm)
-
     setCompanyForm({ ...companyForm, [event.target.id]: event.target.value })
-    console.log(companyForm)
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(companyForm)
     setCompany(initCompanyForm)
     useNavigate('/login')
   }
