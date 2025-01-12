@@ -1,39 +1,39 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import departmentsService from '../../services/departmentsService'
-import DepartmentRow from './DepartmentRow'
+import companiesService from '../../services/companiesService'
+import CompanyRow from './CompanyRow'
 
-const CompaniesList = () => {
+const CompanyList = () => {
   const navigate = useNavigate()
   const [message, setMessage] = useState(null)
-  const [departments, setDepartments] = useState(null)
+  const [companies, setCompanies] = useState(null)
 
   const getList = async () => {
-    const data = await departmentsService.index()
-    setDepartments(data)
+    const data = await companiesService.index()
+    setCompanies(data ? (data.length > 0 ? data : null) : null)
   }
 
   const handleDelete = async (e) => {
-    const data = await departmentsService.deleting(e.target.id)
+    const data = await companiesService.deleting(e.target.id)
     if (data) {
       if (data.error) {
         setMessage({ msg: data.error, type: 'alert alert-danger' })
       } else {
-        setMessage({ msg: data.message, type: 'alert alert-info' })
+        setMessage({ msg: data.message?data.message:"Company Deleted Successfully", type: 'alert alert-info' })
       }
       getList()
     }
   }
 
   const handleStatus = async (e) => {
-    const data = await departmentsService.update(e.target.id, {
+    const data = await companiesService.update(e.target.id, {
       status: e.target.name
     })
     if (data) {
       if (data.error) {
         setMessage({ msg: data.error, type: 'alert alert-danger' })
       } else {
-        setMessage({ msg: data.message, type: 'alert alert-info' })
+        setMessage({ msg: data.message?data.message:"Company status changed successfully", type: 'alert alert-info' })
       }
       getList()
     }
@@ -41,8 +41,8 @@ const CompaniesList = () => {
 
   useEffect(() => {
     const fetchDefaultList = async () => {
-      const data = await departmentsService.index()
-      setDepartments(data)
+      const data = await companiesService.index()
+      setCompanies(data ? (data.length > 0 ? data : null) : null)
     }
     fetchDefaultList()
   }, [])
@@ -50,35 +50,34 @@ const CompaniesList = () => {
   return (
     <>
       <div className="container mt-5">
-        <h1>Department List</h1>
+        <h1>Companies List</h1>
         <div className="container table-container">
           <div className="text-end">
-            <Link
-              to={`/departments/new`}
-              className="btn btn-primary btn-sm mb-4"
-            >
-              New Department
+            <Link to={`/companies/new`} className="btn btn-primary btn-sm mb-4">
+              New Company
             </Link>
           </div>
           {message ? <div className={message.type}>{message.msg}</div> : null}
-          {departments ? (
+          {companies ? (
             <table className="table table-bordered table-hover text-center">
               <thead className="thead-dark">
                 <tr>
                   <th>ID</th>
-                  <th>Company</th>
                   <th>Name</th>
-                  <th>Description</th>
+                  <th>Phone</th>
+                  <th>Email</th>
+                  <th>Address</th>
+                  <th>CR</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody id="servicesTableBody">
-                {departments.length > 0 ? (
-                  departments.map((department, index) => (
-                    <DepartmentRow
-                      key={department._id}
-                      department={department}
+                {companies.length > 0 ? (
+                  companies.map((company, index) => (
+                    <CompanyRow
+                      key={company._id}
+                      company={company}
                       index={index}
                       getList={getList}
                       handleDelete={handleDelete}
@@ -87,7 +86,7 @@ const CompaniesList = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colspan="6">No departments found</td>
+                    <td colspan="8">No company found</td>
                   </tr>
                 )}
               </tbody>
@@ -101,4 +100,4 @@ const CompaniesList = () => {
   )
 }
 
-export default CompaniesList
+export default CompanyList
