@@ -1,19 +1,19 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import logoSvg from '../components/logo.svg'
+
 const Register = () => {
   const initCompanyForm = {
     companyName: '',
     companyEmail: '',
-    phone: '',
-    address: '',
-    logo: '',
+    companyCr: '',
     adminName: '',
     adminEmail: '',
-    cpr: '',
+    adminName: '',
+    adminEmail: '',
     username: '',
     password: '',
-    confirmPassword: ''
+    cpr: '',
+    address: ''
   }
 
   const [companyForm, setCompanyForm] = useState(initCompanyForm)
