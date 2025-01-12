@@ -71,8 +71,8 @@ const MainNav = ({ user, logOut }) => {
             {user ? (
               user.role !== 'customer' && user.role !== 'staff' ? (
                 <li className="nav-item">
-                  <Link className="nav-link" to="/staff">
-                    Staff
+                  <Link className="nav-link" to="/users">
+                    Users
                   </Link>
                 </li>
               ) : (
