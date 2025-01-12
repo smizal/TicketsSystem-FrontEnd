@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './App.css'
 const BASE_URL = import.meta.env.VITE_BACKEND
@@ -26,11 +27,13 @@ import NewUser from './pages/users/NewUser'
 import UserDetails from './pages/users/UserDetails'
 
 function App() {
+  const navigate = useNavigate()
   const [user, setUser] = useState(null)
 
   const logOut = () => {
     localStorage.removeItem('authToken')
     setUser(null)
+    navigate('/')
   }
 
   return (
