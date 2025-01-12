@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import departmentsService from "../../services/departmentsService"
-import DepartmentRow from "./DepartmentRow"
+import { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import departmentsService from '../../services/departmentsService'
+import DepartmentRow from './DepartmentRow'
 
 const DepartmentsList = () => {
-
   const navigate = useNavigate()
   const [message, setMessage] = useState(null)
   const [departments, setDepartments] = useState(null)
@@ -22,9 +21,12 @@ const DepartmentsList = () => {
     const data = await departmentsService.deleting(e.target.id)
     if (data) {
       if (data.error) {
-        setMessage({ msg: data.error, type: "alert alert-danger" })
+        setMessage({ msg: data.error, type: 'alert alert-danger' })
       } else {
-        setMessage({ msg: data.message, type: "alert alert-info" })
+        setMessage({
+          msg: data.message ? data.message : 'Department Deleted Successfully',
+          type: 'alert alert-info'
+        })
       }
       getList()
       setLoading(false)
@@ -34,13 +36,18 @@ const DepartmentsList = () => {
   const handleStatus = async (e) => {
     setLoading(true)
     const data = await departmentsService.update(e.target.id, {
-      status: e.target.name,
+      status: e.target.name
     })
     if (data) {
       if (data.error) {
-        setMessage({ msg: data.error, type: "alert alert-danger" })
+        setMessage({ msg: data.error, type: 'alert alert-danger' })
       } else {
-        setMessage({ msg: data.message, type: "alert alert-info" })
+        setMessage({
+          msg: data.message
+            ? data.message
+            : 'Department status updated successfully',
+          type: 'alert alert-info'
+        })
       }
       getList()
       setLoading(false)
@@ -109,7 +116,7 @@ const DepartmentsList = () => {
               </tbody>
             </table>
           ) : (
-            "No departments found"
+            'No departments found'
           )}
         </div>
       </div>

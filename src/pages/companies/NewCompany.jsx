@@ -31,7 +31,7 @@ const NewCompany = ({ user }) => {
           setMessage({ msg: data.error, type: 'alert alert-danger' })
         } else {
           setMessage({
-            msg: 'Company Added Successfully',
+            msg: data.message ? data.message : 'Company Added Successfully',
             type: 'alert alert-success'
           })
           setFormData(initialFormData)
@@ -41,7 +41,9 @@ const NewCompany = ({ user }) => {
     } catch (error) {
       console.log(error)
       setMessage({
-        msg: 'There is an error, please contact the administrator',
+        msg: data.message
+          ? data.message
+          : 'There is an error, please contact the administrator',
         type: 'alert alert-danger'
       })
     }

@@ -41,7 +41,7 @@ const TicketStatus = () => {
           ticketData.threads.push(data)
           setTicketData(ticketData)
           setMessage({
-            msg: 'Thread added Successfully',
+            msg: data.message ? data.message : 'Thread added Successfully',
             type: 'alert alert-success'
           })
           setFormData({

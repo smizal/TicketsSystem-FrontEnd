@@ -46,7 +46,7 @@ const NewDepartment = ({ user }) => {
           setMessage({ msg: data.error, type: 'alert alert-danger' })
         } else {
           setMessage({
-            msg: 'Department Added Successfully',
+            msg: data.message ? data.message : 'Department Added Successfully',
             type: 'alert alert-success'
           })
           setFormData(initialFormData)
