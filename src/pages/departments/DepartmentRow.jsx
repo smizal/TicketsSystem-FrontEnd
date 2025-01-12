@@ -32,6 +32,7 @@ const DepartmentRow = ({
         >
           View
         </Link> */}
+
         <button
           className="btn btn-danger btn-sm me-2"
           id={department._id}
