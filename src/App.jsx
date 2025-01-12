@@ -22,6 +22,8 @@ import TicketsList from './pages/tickets/TicketsList'
 import TicketsCreated from './pages/TicketsCreated'
 import TicketDetails from './pages/tickets/TicketDetails'
 import TicketForm from './pages/tickets/TicketForm'
+import NewUser from './pages/users/NewUser'
+import UserDetails from './pages/users/UserDetails'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -61,8 +63,8 @@ function App() {
           />
           <Route path="/departments/:id" element={<oneDepartment />} />
           <Route path="/users" element={<UsersList />} />
-          <Route path="/users/new" element={<TicketStatus />} />
-          <Route path="/users/:id" element={<TicketStatus />} />
+          <Route path="/users/new" element={<NewUser />} />
+          <Route path="/users/:id" element={<UserDetails />} />
           <Route path="/users/edit/:id" element={<TicketStatus />} />
           <Route path="*" element={<HomeCover />} />
         </Routes>

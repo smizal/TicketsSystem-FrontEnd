@@ -39,4 +39,13 @@ const create = async (data) => {
   }
 }
 
+const show = async (id) => {
+  try {
+    const response = await client.get(`/users/${id}`)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export default { index, deleting, update, create }

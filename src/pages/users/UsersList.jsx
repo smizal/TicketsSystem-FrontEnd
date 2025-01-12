@@ -48,7 +48,7 @@ const UsersList = () => {
   useEffect(() => {
     const fetchDefaultList = async () => {
       const data = await usersService.index()
-      usersService(data)
+      setUsers(data)
     }
     fetchDefaultList()
   }, [])
@@ -59,12 +59,12 @@ const UsersList = () => {
         <h1>Users List</h1>
         <div className="container table-container">
           <div className="text-end">
-            <Link to={`/Users/new`} className="btn btn-primary btn-sm mb-4">
+            <Link to={`/users/new`} className="btn btn-primary btn-sm mb-4">
               New User
             </Link>
           </div>
           {message ? <div className={message.type}>{message.msg}</div> : null}
-          {departments ? (
+          {users ? (
             <table className="table table-bordered table-hover text-center">
               <thead className="thead-dark">
                 <tr>
@@ -81,11 +81,11 @@ const UsersList = () => {
                 </tr>
               </thead>
               <tbody id="servicesTableBody">
-                {departments.length > 0 ? (
-                  departments.map((department, index) => (
+                {users.length > 0 ? (
+                  users.map((user, index) => (
                     <UserRaw
-                      key={department._id}
-                      department={department}
+                      key={user._id}
+                      user={user}
                       index={index}
                       getList={getList}
                       handleDelete={handleDelete}
@@ -94,7 +94,7 @@ const UsersList = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colspan="10">No Users found</td>
+                    <td colspan="10">No User found</td>
                   </tr>
                 )}
               </tbody>
