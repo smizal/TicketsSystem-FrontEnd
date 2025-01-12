@@ -116,11 +116,11 @@ const MainNav = ({ user, logOut }) => {
                 Logout
               </button>
             )}
-            <Link className="nav-link" to="/register">
+            {/* <Link className="nav-link" to="/register">
               <button type="button" className="btn btn-warning">
                 Register Company
               </button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
