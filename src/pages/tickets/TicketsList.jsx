@@ -7,13 +7,17 @@ const TicketsList = () => {
   const navigate = useNavigate()
   const [message, setMessage] = useState(null)
   const [tickets, setTickets] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   const getList = async () => {
+    setLoading(true)
     const data = await ticketsService.index()
     setTickets(data)
+    setLoading(false)
   }
 
   const handleDelete = async (e) => {
+    setLoading(true)
     const data = await ticketsService.deleting(e.target.id)
     if (data) {
       if (data.error) {
@@ -25,10 +29,12 @@ const TicketsList = () => {
         })
       }
       getList()
+      setLoading(false)
     }
   }
 
   const handleStatus = async (e) => {
+    setLoading(true)
     const data = await ticketsService.update(e.target.id, {
       status: e.target.name,
     })
@@ -42,15 +48,12 @@ const TicketsList = () => {
         })
       }
       getList()
+      setLoading(false)
     }
   }
 
   useEffect(() => {
-    const fetchDefaultList = async () => {
-      const data = await ticketsService.index()
-      setTickets(data)
-    }
-    fetchDefaultList()
+    getList(); // Fetching the default list on component mount
   }, [])
 
   return (
@@ -64,42 +67,48 @@ const TicketsList = () => {
             </Link>
           </div>
           {message ? <div className={message.type}>{message.msg}</div> : null}
-          {tickets ? (
-            <table className="table table-bordered table-hover text-center">
-              <thead className="thead-dark">
-                <tr>
-                  <th>ID</th>
-                  <th>Title</th>
-                  <th>Company</th>
-                  <th>Department</th>
-                  <th>Customer</th>
-                  <th>Type</th>
-                  <th>Date Created</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="servicesTableBody">
-                {tickets.length > 0 ? (
-                  tickets.map((ticket, index) => (
-                    <TicketAdminRow
-                      key={ticket._id}
-                      ticket={ticket}
-                      index={index}
-                      getList={getList}
-                      handleDelete={handleDelete}
-                      handleStatus={handleStatus}
-                    />
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan="9">No tickets found</td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+          {loading ? (
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
           ) : (
-            "Loading..."
+            tickets ? (
+              <table className="table table-bordered table-hover text-center">
+                <thead className="thead-dark">
+                  <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Company</th>
+                    <th>Department</th>
+                    <th>Customer</th>
+                    <th>Type</th>
+                    <th>Date Created</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="servicesTableBody">
+                  {tickets.length > 0 ? (
+                    tickets.map((ticket, index) => (
+                      <TicketAdminRow
+                        key={ticket._id}
+                        ticket={ticket}
+                        index={index}
+                        getList={getList}
+                        handleDelete={handleDelete}
+                        handleStatus={handleStatus}
+                      />
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="9">No tickets found</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            ) : (
+              <p>No tickets available.</p>
+            )
           )}
         </div>
       </div>

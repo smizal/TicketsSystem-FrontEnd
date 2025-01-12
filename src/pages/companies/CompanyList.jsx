@@ -19,7 +19,7 @@ const CompanyList = () => {
       if (data.error) {
         setMessage({ msg: data.error, type: 'alert alert-danger' })
       } else {
-        setMessage({ msg: data.message, type: 'alert alert-info' })
+        setMessage({ msg: data.message?data.message:"Company Deleted Successfully", type: 'alert alert-info' })
       }
       getList()
     }
@@ -33,7 +33,7 @@ const CompanyList = () => {
       if (data.error) {
         setMessage({ msg: data.error, type: 'alert alert-danger' })
       } else {
-        setMessage({ msg: data.message, type: 'alert alert-info' })
+        setMessage({ msg: data.message?data.message:"Company status changed successfully", type: 'alert alert-info' })
       }
       getList()
     }
@@ -86,7 +86,7 @@ const CompanyList = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colspan="6">No company found</td>
+                    <td colspan="8">No company found</td>
                   </tr>
                 )}
               </tbody>

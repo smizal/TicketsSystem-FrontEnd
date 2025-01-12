@@ -4,16 +4,21 @@ import departmentsService from "../../services/departmentsService"
 import DepartmentRow from "./DepartmentRow"
 
 const DepartmentsList = () => {
+
   const navigate = useNavigate()
   const [message, setMessage] = useState(null)
   const [departments, setDepartments] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   const getList = async () => {
+    setLoading(true)
     const data = await departmentsService.index()
     setDepartments(data ? (data.length > 0 ? data : null) : null)
+    setLoading(false)
   }
 
   const handleDelete = async (e) => {
+    setLoading(true)
     const data = await departmentsService.deleting(e.target.id)
     if (data) {
       if (data.error) {
@@ -22,10 +27,12 @@ const DepartmentsList = () => {
         setMessage({ msg: data.message, type: "alert alert-info" })
       }
       getList()
+      setLoading(false)
     }
   }
 
   const handleStatus = async (e) => {
+    setLoading(true)
     const data = await departmentsService.update(e.target.id, {
       status: e.target.name,
     })
@@ -36,13 +43,16 @@ const DepartmentsList = () => {
         setMessage({ msg: data.message, type: "alert alert-info" })
       }
       getList()
+      setLoading(false)
     }
   }
 
   useEffect(() => {
+    setLoading(true)
     const fetchDefaultList = async () => {
       const data = await departmentsService.index()
       setDepartments(data)
+      setLoading(false)
     }
     fetchDefaultList()
   }, [])
@@ -61,7 +71,13 @@ const DepartmentsList = () => {
             </Link>
           </div>
           {message ? <div className={message.type}>{message.msg}</div> : null}
-          {departments ? (
+          {loading ? (
+            <div className="text-center">
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          ) : departments ? (
             <table className="table table-bordered table-hover text-center">
               <thead className="thead-dark">
                 <tr>
@@ -93,7 +109,7 @@ const DepartmentsList = () => {
               </tbody>
             </table>
           ) : (
-            "Loading..."
+            "No departments found"
           )}
         </div>
       </div>
