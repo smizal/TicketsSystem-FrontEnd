@@ -1,6 +1,6 @@
 # Car Rental MEN-CRUD System
 
-![Car Rental Screen](public\img\HomeScreen.png)
+![Car Rental Screen](public/img/HomeScreen.png)
 
 ## What is a ticket management system?
 
